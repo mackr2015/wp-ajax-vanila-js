@@ -14,7 +14,7 @@ btn.addEventListener('click', function(){
 
     xhr.onload = (event) => {
         if( xhr.readyState == 4 && xhr.status == 200 ) {
-            console.log(event);
+            // console.log(event);
             // console.log(xhr.responseText);
             const returnData = xhr.responseText
             document.querySelector('#results').innerHTML = returnData;
@@ -24,7 +24,9 @@ btn.addEventListener('click', function(){
         }
 
     };
-   
+    xhr.onerror = () => {
+        console.log('Ajax call has error')
+    };
    
     xhr.send( 'dataName=' + ajaxData );
 
